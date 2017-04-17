@@ -40,7 +40,7 @@ android {
 ext {
     supportLibVersion = '25.3.0'
     okhttpVersion = '3.5.0'
-    daggerVersion = '2.5'
+    daggerVersion = '2.10'
     glideVersion = '3.7.0'
 }
 
@@ -72,5 +72,4 @@ dependencies {
     // Dependency Injection
     apt "com.google.dagger:dagger-compiler:${daggerVersion}"
     compile "com.google.dagger:dagger:${daggerVersion}"
-    provided 'javax.annotation:jsr250-api:1.0'
 }
