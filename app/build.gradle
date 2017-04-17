@@ -27,7 +27,7 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         buildConfigField "String", "TMDB_API_KEY", "\"${getProperty("local.properties", "tmdb_api_key")}\""
-        buildConfigField "String", "BASE_URL", "\"https://api.themoviedb.org/3\""
+        buildConfigField "String", "BASE_URL", "\"https://api.douban.com/\""
     }
     buildTypes {
         release {
