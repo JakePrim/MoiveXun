@@ -3,7 +3,6 @@ package com.moive.sus.library.base;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
-
 import java.util.LinkedList;
 import java.util.List;
 

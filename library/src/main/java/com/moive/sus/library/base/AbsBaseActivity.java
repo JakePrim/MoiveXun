@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
 import com.moive.sus.library.R;
+import com.moive.sus.library.base.util.LogUtils;
 import com.moive.sus.library.base.widgets.statusview.MultipleStatusView;
 
 /**
@@ -42,16 +43,17 @@ public abstract class AbsBaseActivity extends AppCompatActivity implements BaseV
         if (getStatusLayoutView() != null) {
             setContentView(getStatusLayoutView());
         }
-        initViewsAndEvents(savedInstanceState);
         initListener();
+        initViewsAndEvents(savedInstanceState);
     }
 
     protected void initListener() {
+        LogUtils.v(TAG_LOG, "setOnRetryClickListener");
         statusView.setOnRetryClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showLoadingView("");
-                //TODO 处理各种事件
+                LogUtils.v(TAG_LOG, "setOnRetryClickListener");
+                statusView.showLoading();
             }
         });
     }

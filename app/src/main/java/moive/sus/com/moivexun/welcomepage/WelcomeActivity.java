@@ -1,8 +1,6 @@
 package moive.sus.com.moivexun.welcomepage;
 
 import android.os.Bundle;
-import android.os.PersistableBundle;
-import android.support.annotation.Nullable;
 
 import com.moive.sus.library.base.AbsBaseActivity;
 
@@ -28,7 +26,5 @@ public class WelcomeActivity extends AbsBaseActivity implements WelcomeContract.
     public void toMainActivity() {
 
     }
-
-
 
 }
