@@ -1,22 +1,22 @@
 package moive.sus.com.moivexun.welcomepage;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.os.PersistableBundle;
+import android.support.annotation.Nullable;
+
+import com.moive.sus.library.base.AbsBaseActivity;
 
 import moive.sus.com.moivexun.R;
-import moive.sus.com.moivexun.base.AbsBaseActivity;
 
 public class WelcomeActivity extends AbsBaseActivity implements WelcomeContract.View {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_welcome);
-    }
+
+    private WelcomePresenter presenter = new WelcomePresenter(this);
 
     @Override
     protected void initViewsAndEvents(Bundle savedInstanceState) {
-
+        presenter.attachView(this);
+        presenter.initData();
     }
 
     @Override
@@ -28,4 +28,7 @@ public class WelcomeActivity extends AbsBaseActivity implements WelcomeContract.
     public void toMainActivity() {
 
     }
+
+
+
 }

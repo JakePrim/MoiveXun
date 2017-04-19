@@ -1,4 +1,4 @@
-package moive.sus.com.moivexun.base;
+package com.moive.sus.library.base;
 
 /**
  * Created by linskSu on 2017/4/18.

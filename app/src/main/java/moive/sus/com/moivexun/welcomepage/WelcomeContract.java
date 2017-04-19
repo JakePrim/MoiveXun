@@ -1,9 +1,8 @@
 package moive.sus.com.moivexun.welcomepage;
 
-import android.view.View;
 
-import moive.sus.com.moivexun.base.BasePresenter;
-import moive.sus.com.moivexun.base.BaseView;
+import com.moive.sus.library.base.BasePresenter;
+import com.moive.sus.library.base.BaseView;
 
 /**
  * Created by linskSu on 2017/4/18.
