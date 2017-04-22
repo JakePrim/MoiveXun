@@ -6,4 +6,8 @@
     android:layout_height="match_parent"
     tools:context="moive.sus.com.moivexun.welcomepage.WelcomeActivity">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="HELLOWORD"/>
 </android.support.constraint.ConstraintLayout>

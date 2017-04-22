@@ -1,6 +1,8 @@
 package moive.sus.com.moivexun.welcomepage;
 
 import android.content.Context;
+import android.os.Handler;
+import android.os.Message;
 
 /**
  * Created by linksus on 4/19 0019.
@@ -17,7 +19,14 @@ public class WelcomePresenter implements WelcomeContract.Presenter {
 
     @Override
     public void initData() {
-        mView.showEmptyView();
+        mView.showLoadingView("");
+        new Handler() {
+            @Override
+            public void handleMessage(Message msg) {
+                super.handleMessage(msg);
+                mView.showNoNetworkView();
+            }
+        }.sendEmptyMessageDelayed(0, 3000);
     }
 
     @Override

@@ -26,9 +26,9 @@ public abstract class AbsBaseActivity extends AppCompatActivity implements BaseV
     protected static String TAG_LOG = null;// Log tag
 
     protected Context mContext = null;//context
-    protected RelativeLayout content_view;
-    protected View activity_status_view;
-    protected MultipleStatusView statusView;
+    public RelativeLayout content_view;
+    public View activity_status_view;
+    public MultipleStatusView statusView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -43,26 +43,20 @@ public abstract class AbsBaseActivity extends AppCompatActivity implements BaseV
         if (getStatusLayoutView() != null) {
             setContentView(getStatusLayoutView());
         }
-        initListener();
         initViewsAndEvents(savedInstanceState);
     }
 
-    protected void initListener() {
-        LogUtils.v(TAG_LOG, "setOnRetryClickListener");
-        statusView.setOnRetryClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                LogUtils.v(TAG_LOG, "setOnRetryClickListener");
-                statusView.showLoading();
-            }
-        });
-    }
-
     //https://github.com/qyxxjd/MultipleStatusView
+
+    /**
+     * setContentView
+     * @return
+     */
     protected View getStatusLayoutView() {
         activity_status_view = LayoutInflater.from(this).inflate(R.layout.lib_activity_show_status, null);
         statusView = (MultipleStatusView) activity_status_view.findViewById(R.id.main_multiplestatusview);
         content_view = (RelativeLayout) activity_status_view.findViewById(R.id.content_view);
+        initListener();
         if (getContentViewID() != 0) {
             View contentView = LayoutInflater.from(this).inflate(getContentViewID(), null);
             ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
@@ -81,6 +75,24 @@ public abstract class AbsBaseActivity extends AppCompatActivity implements BaseV
      */
     protected abstract int getContentViewID();
 
+    /**
+     * 错误界面的点击事件处理
+     */
+    protected abstract void onRetryClick();
+
+    /**
+     * 初始化监听
+     */
+    protected void initListener() {
+        statusView.setOnRetryClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LogUtils.v(TAG_LOG, "setOnRetryClickListener");
+                statusView.showLoading();
+                onRetryClick();
+            }
+        });
+    }
 
     @Override
     public void showContentView() {
