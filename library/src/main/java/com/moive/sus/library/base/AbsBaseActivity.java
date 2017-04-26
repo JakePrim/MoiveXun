@@ -14,7 +14,7 @@ import android.widget.RelativeLayout;
 
 import com.moive.sus.library.R;
 import com.moive.sus.library.base.util.LogUtils;
-import com.moive.sus.library.base.widgets.statusview.MultipleStatusView;
+import com.moive.sus.library.base.widget.MultipleStatusView;
 
 /**
  * Created by 17604 on 2017/4/18.
@@ -87,7 +87,6 @@ public abstract class AbsBaseActivity extends AppCompatActivity implements BaseV
         statusView.setOnRetryClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LogUtils.v(TAG_LOG, "setOnRetryClickListener");
                 statusView.showLoading();
                 onRetryClick();
             }

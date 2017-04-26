@@ -6,6 +6,8 @@ import android.os.Message;
 
 /**
  * Created by linksus on 4/19 0019.
+ * Class Note:
+ * 处理欢迎页面逻辑类
  */
 
 public class WelcomePresenter implements WelcomeContract.Presenter {

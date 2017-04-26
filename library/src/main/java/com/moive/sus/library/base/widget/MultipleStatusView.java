@@ -1,4 +1,4 @@
-package com.moive.sus.library.base.widgets.statusview;
+package com.moive.sus.library.base.widget;
 
 import android.content.Context;
 import android.content.res.TypedArray;
