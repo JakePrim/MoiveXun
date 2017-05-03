@@ -23,7 +23,7 @@ public class MoiveApp extends BaseApplication {
         appContext = this;
         Utils.init(this);
         lBuilder = new LogUtils.Builder()
-                .setLogSwitch(BuildConfig.DEBUG)// 设置log总开关，默认开
+                .setLogSwitch(BuildConfig.TAG_DEBUG)// 设置log总开关，默认开
                 .setGlobalTag("Linksu")// 设置log全局标签，默认为空
                 // 当全局标签不为空时，我们输出的log全部为该tag，
                 // 为空时，如果传入的tag为空那就显示类名，否则显示tag

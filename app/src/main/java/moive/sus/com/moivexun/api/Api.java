@@ -12,7 +12,7 @@ import moive.sus.com.moivexun.BuildConfig;
  * */
 
 public class Api {
-    private static final String TMDB_API_KEY = BuildConfig.TMDB_API_KEY;
+//    private static final String TMDB_API_KEY = BuildConfig.TMDB_API_KEY;
     public static final String BASE_URL = BuildConfig.BASE_URL;
     public static final String POSTER_PATH = "http://image.tmdb.org/t/p/w342";
     public static final String BACKDROP_PATH = "http://image.tmdb.org/t/p/w780";

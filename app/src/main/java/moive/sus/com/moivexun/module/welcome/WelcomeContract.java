@@ -1,4 +1,4 @@
-package moive.sus.com.moivexun.welcomepage;
+package moive.sus.com.moivexun.module.welcome;
 
 
 import com.moive.sus.library.base.BasePresenter;
