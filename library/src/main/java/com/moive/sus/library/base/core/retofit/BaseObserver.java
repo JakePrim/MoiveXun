@@ -22,12 +22,13 @@ public abstract class BaseObserver<T> implements Observer<T> {
 
     @Override
     public void onSubscribe(@NonNull Disposable d) {
+        //todo loading
         this.d = d;
     }
 
     @Override
     public void onNext(@NonNull T t) {
-
+        //todo 处理返回的结果
     }
 
     @Override
@@ -44,6 +45,7 @@ public abstract class BaseObserver<T> implements Observer<T> {
 
     @Override
     public void onComplete() {
+        //todo miss loading
         d.dispose();
     }
 

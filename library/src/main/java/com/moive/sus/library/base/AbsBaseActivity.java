@@ -119,8 +119,8 @@ public abstract class AbsBaseActivity extends AppCompatActivity implements BaseV
     }
 
     @Override
-    public void close() {
-
+    public void close() { // 退出程序
+        BaseAppManager.getInstance().AppExit(this);
     }
 
     public void startActivity(Class<? extends Activity> tarActivity, Bundle options) {

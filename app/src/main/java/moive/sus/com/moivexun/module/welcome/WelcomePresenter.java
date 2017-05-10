@@ -45,7 +45,6 @@ public class WelcomePresenter implements WelcomeContract.Presenter {
             public void onNext(@NonNull ResponseBody o) {
                 Toast.makeText(mContext, "onNext", Toast.LENGTH_LONG).show();
                 try {
-
                     LogUtils.e(o.string());
                 } catch (IOException e) {
                     e.printStackTrace();
