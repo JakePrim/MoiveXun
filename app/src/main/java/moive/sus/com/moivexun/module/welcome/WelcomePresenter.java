@@ -6,10 +6,10 @@ import android.widget.Toast;
 import com.moive.sus.library.base.core.retofit.BaseObserver;
 import com.moive.sus.library.base.core.retofit.ExceptionHandle;
 import com.moive.sus.library.base.core.retofit.RetrofitClient;
-import com.moive.sus.library.base.core.retofit.theaterBean;
 import com.moive.sus.library.base.util.LogUtils;
 
-import io.reactivex.Observer;
+import java.io.IOException;
+
 import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
 import moive.sus.com.moivexun.api.DApi;
@@ -32,8 +32,9 @@ public class WelcomePresenter implements WelcomeContract.Presenter {
 
     @Override
     public void initData() {
-        RetrofitClient.getInstance(mContext, DApi.BASE_URL).createBaseApi().postno(new BaseObserver<theaterBean>(mContext) {
+        RetrofitClient.getInstance(mContext, DApi.BASE_URL).createBaseApi().executePost(DApi.NOW_MOVIE_URL, new BaseObserver<ResponseBody>(mContext) {
             Disposable mDis;
+
             @Override
             public void onSubscribe(@NonNull Disposable d) {
                 mView.showLoadingView("");
@@ -41,9 +42,14 @@ public class WelcomePresenter implements WelcomeContract.Presenter {
             }
 
             @Override
-            public void onNext(@NonNull theaterBean responseBody) {
+            public void onNext(@NonNull ResponseBody o) {
                 Toast.makeText(mContext, "onNext", Toast.LENGTH_LONG).show();
-                LogUtils.e(responseBody.getTitle());
+                try {
+
+                    LogUtils.e(o.string());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
 
             @Override
@@ -55,7 +61,7 @@ public class WelcomePresenter implements WelcomeContract.Presenter {
 
             @Override
             public void onError(ExceptionHandle.ResponeThrowable e) {
-               mView.showErrorView("","");
+                mView.showErrorView("", "");
             }
         });
 

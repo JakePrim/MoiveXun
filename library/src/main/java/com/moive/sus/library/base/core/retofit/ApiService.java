@@ -3,6 +3,7 @@ package com.moive.sus.library.base.core.retofit;
 import java.util.Map;
 
 import io.reactivex.Observable;
+import io.reactivex.Observer;
 import okhttp3.ResponseBody;
 import retrofit2.http.FieldMap;
 import retrofit2.http.GET;
@@ -12,7 +13,7 @@ import retrofit2.http.QueryMap;
 
 /**
  * Created by linksus on 4/28 0028.
- * 初始化Retrofit
+ * 请求接口
  */
 
 public interface ApiService {
@@ -26,7 +27,7 @@ public interface ApiService {
     @POST("{url}")
     Observable<ResponseBody> executePost(@Path("url") String url, @FieldMap Map<String, String> maps);
 
-    @GET("/v2/movie/in_theaters")
-    Observable<theaterBean> executePostno();
+    @POST("{url}")
+    Observable<ResponseBody> executePost(@Path("url") String url);
 
 }

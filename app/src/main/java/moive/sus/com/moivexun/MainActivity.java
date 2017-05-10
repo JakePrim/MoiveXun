@@ -17,18 +17,5 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        RetrofitClient.getInstance(this, DApi.BASE_URL).createBaseApi().post(DApi.NOW_MOVIE_URL, null, new BaseSubscriber<ResponseBody>(this) {
-            @Override
-            public void onError(ExceptionHandle.ResponeThrowable e) {
-                Log.e("Lyk", e.getMessage());
-                Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
-
-            }
-
-            @Override
-            public void onNext(ResponseBody responseBody) {
-                Toast.makeText(MainActivity.this, responseBody.toString(), Toast.LENGTH_LONG).show();
-            }
-        });
     }
 }

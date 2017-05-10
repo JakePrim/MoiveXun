@@ -36,6 +36,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * Created by linksus on 5/2 0002.
+ * 网络请求看客户端
  */
 
 public class RetrofitClient {
@@ -191,49 +192,16 @@ public class RetrofitClient {
         }
         return retrofit.create(service);
     }
-//
-//    public void get(String url, Map parameters, Observer<BaseResponse<String>> observer) {
-//        apiService.executeGet(url, parameters)
-//                .compose(RxSchedulers.<BaseResponse<Object>>compose())
-//                .compose(transformer())
-//                .subscribe(observer);
-//    }
-//
-//    public void post(String url, Map<String, String> parameters, BaseSubscriber<ResponseBody> observer) {
-//        apiService.executePost(url, parameters)
-//                .compose(RxSchedulers.<ResponseBody>compose())
-//                .compose(transformer())
-//                .subscribe((Consumer<? super Object>) observer);
-//    }
 
-    public void postno(BaseObserver<theaterBean> observer) {
-        apiService.executePostno()
-                .compose(RxSchedulers.<theaterBean>compose())
+    public void executePost(String url, BaseObserver<ResponseBody> observer) {
+        apiService.executePost(url)
+                .compose(RxSchedulers.<ResponseBody>compose())
                 .subscribe(observer);
     }
-//
-//    public Subscription json(String url, RequestBody jsonStr, Subscriber<IpResult> subscriber) {
-//
-//        return apiService.json(url, jsonStr)
-//                .compose(schedulersTransformer())
-//                .compose(transformer())
-//                .subscribe(subscriber);
-//    }
 
-//    public void upload(String url, RequestBody requestBody,Subscriber<ResponseBody> subscriber) {
-//        apiService.upLoadFile(url, requestBody)
-//                .compose(schedulersTransformer())
-//                .compose(transformer())
-//                .subscribe(subscriber);
-//    }
-//
-//    public void download(String url, final CallBack callBack) {
-//        apiService.downloadFile(url)
-//                .compose(schedulersTransformer())
-//                .compose(transformer())
-//                .subscribe(new DownSubscriber<ResponseBody>(callBack));
-//    }
+    public void executePost(String url, Map<String, String> map, BaseObserver<ResponseBody> observer) {
 
+    }
 
     /**
      * /**
