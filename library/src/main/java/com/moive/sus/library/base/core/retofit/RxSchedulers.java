@@ -15,6 +15,7 @@ import io.reactivex.schedulers.Schedulers;
 
 /**
  * Created by linksus on 5/2 0002.
+ * Rx 线程管理类
  */
 
 public class RxSchedulers {
@@ -22,18 +23,7 @@ public class RxSchedulers {
         return new ObservableTransformer<T, T>() {
             @Override
             public ObservableSource<T> apply(Observable<T> observable) {
-                return observable
-                        .subscribeOn(Schedulers.io())
-                        .unsubscribeOn(Schedulers.io())
-                        .doOnSubscribe(new Consumer<Disposable>() {
-                            @Override
-                            public void accept(Disposable disposable) throws Exception {
-//                                if (!Utils.isNetworkConnected()) {
-//                                    Toast.makeText(context, R.string.toast_network_error, Toast.LENGTH_SHORT).show();
-//                                }
-                            }
-                        })
-                        .observeOn(AndroidSchedulers.mainThread());
+                return observable.subscribeOn(Schedulers.io()).unsubscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
             }
         };
     }

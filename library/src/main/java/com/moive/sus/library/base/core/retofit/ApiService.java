@@ -20,7 +20,13 @@ public interface ApiService {
     @GET("{url}")
     Observable<BaseResponse<Object>> executeGet(@Path("url") String url, @QueryMap Map<String, String> maps);
 
+    @GET("{url}")
+    Observable<BaseResponse<Object>> executeGet(@Path("url") String url);
+
     @POST("{url}")
     Observable<ResponseBody> executePost(@Path("url") String url, @FieldMap Map<String, String> maps);
+
+    @GET("/v2/movie/in_theaters")
+    Observable<theaterBean> executePostno();
 
 }

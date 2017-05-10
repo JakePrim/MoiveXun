@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.moive.sus.library.base.core.retofit.BaseSubscriber;
 import com.moive.sus.library.base.core.retofit.ExceptionHandle;
 import com.moive.sus.library.base.core.retofit.RetrofitClient;
 

@@ -4,6 +4,8 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.moive.sus.library.base.util.LogUtils;
+
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 
@@ -40,7 +42,7 @@ public class RetrofitClient {
     private static final int DEFAULT_TIMEOUT = 20;
     private ApiService apiService;
     private static OkHttpClient okHttpClient;
-    public static String baseUrl;
+    public static String baseUrl = "https://api.douban.com";
     private static Context mContext;
     private static RetrofitClient sNewInstance;
 
@@ -119,9 +121,8 @@ public class RetrofitClient {
             Log.e("OKHttp", "Could not create http cache", e);
         }
         okHttpClient = new OkHttpClient.Builder()
-                .addNetworkInterceptor(
-                        new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
-                .cookieJar(new CookieManger(context))
+                .addNetworkInterceptor(new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
+//                .cookieJar(new CookieManger(context))
                 .cache(cache)
                 .addInterceptor(new BaseInterceptor(headers))
                 .addInterceptor(new CaheInterceptor(context))
@@ -129,7 +130,6 @@ public class RetrofitClient {
                 .connectTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS)
                 .writeTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS)
                 .connectionPool(new ConnectionPool(8, 15, TimeUnit.SECONDS))
-                // 这里你可以根据自己的机型设置同时连接的个数和时间，我这里8个，和每个保持时间为10s
                 .build();
         retrofit = new Retrofit.Builder()
                 .client(okHttpClient)
@@ -191,24 +191,25 @@ public class RetrofitClient {
         }
         return retrofit.create(service);
     }
-
-//    public Subscription getData(Subscriber<IpResult> subscriber, String ip) {
-//        return apiService.getData(ip)
-//                .compose(schedulersTransformer())
-//                .compose(transformer())
-//                .subscribe(subscriber);
-//    }
-
-//    public Subscription get(String url, Map parameters, Observer<BaseResponse<String>> observer) {
 //
-//        return apiService.executeGet(url, parameters).subscribe(observer);
+//    public void get(String url, Map parameters, Observer<BaseResponse<String>> observer) {
+//        apiService.executeGet(url, parameters)
+//                .compose(RxSchedulers.<BaseResponse<Object>>compose())
+//                .compose(transformer())
+//                .subscribe(observer);
+//    }
+//
+//    public void post(String url, Map<String, String> parameters, BaseSubscriber<ResponseBody> observer) {
+//        apiService.executePost(url, parameters)
+//                .compose(RxSchedulers.<ResponseBody>compose())
+//                .compose(transformer())
+//                .subscribe((Consumer<? super Object>) observer);
 //    }
 
-    public void post(String url, Map<String, String> parameters, BaseSubscriber<ResponseBody> observer) {
-        apiService.executePost(url, parameters)
-                .compose(RxSchedulers.<ResponseBody>compose())
-                .compose(transformer())
-                .subscribe((Consumer<? super Object>) observer);
+    public void postno(BaseObserver<theaterBean> observer) {
+        apiService.executePostno()
+                .compose(RxSchedulers.<theaterBean>compose())
+                .subscribe(observer);
     }
 //
 //    public Subscription json(String url, RequestBody jsonStr, Subscriber<IpResult> subscriber) {
@@ -232,55 +233,6 @@ public class RetrofitClient {
 //                .compose(transformer())
 //                .subscribe(new DownSubscriber<ResponseBody>(callBack));
 //    }
-
-//    Observable.Transformer schedulersTransformer() {
-//        return new Observable.Transformer() {
-//
-//
-//            @Override
-//            public Object call(Object observable) {
-//                return ((Observable) observable).subscribeOn(Schedulers.io())
-//                        .unsubscribeOn(Schedulers.io())
-//                        .observeOn(AndroidSchedulers.mainThread());
-//            }
-//        };
-//    }
-//
-//    <T> Observable.Transformer<T, T> applySchedulers() {
-//        return (Observable.Transformer<T, T>) schedulersTransformer();
-//    }
-
-    public <T> ObservableTransformer<T, T> transformer() {
-        return new ObservableTransformer<T, T>() {
-            @Override
-            public ObservableSource<T> apply(Observable<T> observable) {
-                return observable.map((Function<? super T, ? extends T>) new HandleFuc<T>()).onErrorResumeNext(new HttpResponseFunc<T>());
-            }
-        };
-    }
-
-    public <T> Observable<T> switchSchedulers(Observable<T> observable) {
-        return observable.subscribeOn(Schedulers.io())
-                .unsubscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread());
-    }
-
-    private static class HttpResponseFunc<T> implements Function<Throwable, Observable<T>> {
-        @Override
-        public Observable<T> apply(@NonNull Throwable throwable) throws Exception {
-            return Observable.error(ExceptionHandle.handleException(throwable));
-        }
-    }
-
-    private class HandleFuc<T> implements Function<BaseResponse<T>, T> {
-
-        @Override
-        public T apply(@NonNull BaseResponse<T> tBaseResponse) throws Exception {
-            if (!tBaseResponse.isSuccess())
-                throw new RuntimeException(tBaseResponse.getCode() + "" + tBaseResponse.getMessage() != null ? tBaseResponse.getMessage() : "");
-            return tBaseResponse.getData();
-        }
-    }
 
 
     /**

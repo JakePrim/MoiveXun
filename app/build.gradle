@@ -11,7 +11,7 @@ android {
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
-        buildConfigField "String", "BASE_URL", "\"https://api.douban.com/\""
+        buildConfigField "String", "BASE_URL", "\"https://api.douban.com\""
         buildConfigField "boolean", "TAG_DEBUG", "true"
     }
     buildTypes {

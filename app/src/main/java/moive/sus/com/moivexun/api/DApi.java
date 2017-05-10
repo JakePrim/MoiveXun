@@ -9,7 +9,7 @@ import moive.sus.com.moivexun.BuildConfig;
 
 public class DApi {
     public static final String BASE_URL = BuildConfig.BASE_URL;
-    public static final String NOW_MOVIE_URL = BASE_URL + "v2/movie/in_theaters";//正在上映
+    public static final String NOW_MOVIE_URL = "v2/movie/in_theaters";//正在上映
     public static final String COMING_SOON_URL = BASE_URL + "v2/movie/coming_soon";//即将上映
     public static final String SUBJECT_URL = BASE_URL + "v2/movie/subject/:id";//电影条目信息
     public static final String SUBJECT_PHOTOS_URL = BASE_URL + "v2/movie/subject/:id/photos";//电影条目剧照
