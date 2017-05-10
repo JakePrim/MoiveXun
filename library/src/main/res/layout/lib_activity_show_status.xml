@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.moive.sus.library.base.widgets.statusview.MultipleStatusView
+    <com.moive.sus.library.base.widget.MultipleStatusView
         android:id="@+id/main_multiplestatusview"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -14,5 +14,5 @@
             android:id="@+id/content_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
-    </com.moive.sus.library.base.widgets.statusview.MultipleStatusView>
+    </com.moive.sus.library.base.widget.MultipleStatusView>
 </LinearLayout>

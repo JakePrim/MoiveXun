@@ -28,6 +28,7 @@ ext {
     glideVersion = '3.7.0'
     rxjavaVersion = '2.0.9'
     rxandroidVersion = '2.0.1'
+    retrofitVersion = '2.2.0'
 }
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
@@ -48,6 +49,14 @@ dependencies {
     //https://github.com/Ramotion/expanding-collection-android?utm_medium=email&utm_source=gank.io
     //compile 'com.airbnb.android:lottie:1.0.1'
     // Network
+    //retrofit 2.0
+//    compile 'com.trello:rxlifecycle:1.0'
+//    compile 'com.trello:rxlifecycle-components:1.0'
+    compile "com.squareup.retrofit2:retrofit:${retrofitVersion}"
+    compile "com.squareup.retrofit2:converter-gson:${retrofitVersion}"
+    compile "com.squareup.retrofit2:adapter-rxjava2:${retrofitVersion}"
+    compile 'com.google.code.gson:gson:2.8.0'
+    //okhttp
     compile "com.squareup.okhttp3:okhttp:${okhttpVersion}"
     compile "com.squareup.okhttp3:logging-interceptor:${okhttpVersion}"
     // Glide
@@ -59,4 +68,6 @@ dependencies {
     // Rx
     compile "io.reactivex.rxjava2:rxandroid:${rxandroidVersion}"
     compile "io.reactivex.rxjava2:rxjava:${rxjavaVersion}"
+    // butterknife
+    compile 'com.jakewharton:butterknife:7.0.1'
 }
