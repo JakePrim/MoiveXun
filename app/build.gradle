@@ -1,20 +1,20 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.neenbedankt.android-apt'
 
-def getProperty(String filename, String propName) {
-    def propsFile = rootProject.file(filename)
-    if (propsFile.exists()) {
-        def props = new Properties()
-        props.load(new FileInputStream(propsFile))
-        if (props[propName] != null) {
-            return props[propName]
-        } else {
-            print("No such property " + propName + " in file " + filename);
-        }
-    } else {
-        print(filename + " does not exist!")
-    }
-}
+//def getProperty(String filename, String propName) {
+//    def propsFile = rootProject.file(filename)
+//    if (propsFile.exists()) {
+//        def props = new Properties()
+//        props.load(new FileInputStream(propsFile))
+//        if (props[propName] != null) {
+//            return props[propName]
+//        } else {
+//            print("No such property " + propName + " in file " + filename);
+//        }
+//    } else {
+//        print(filename + " does not exist!")
+//    }
+//}
 
 android {
     compileSdkVersion 25
@@ -26,7 +26,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        buildConfigField "String", "TMDB_API_KEY", "\"${getProperty("local.properties", "tmdb_api_key")}\""
+//        buildConfigField "String", "TMDB_API_KEY", "\"${getProperty("local.properties", "tmdb_api_key")}\""
         buildConfigField "String", "BASE_URL", "\"https://api.douban.com/\""
     }
     buildTypes {
@@ -41,8 +41,6 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-
     //library
     compile project(":library")
-
 }
