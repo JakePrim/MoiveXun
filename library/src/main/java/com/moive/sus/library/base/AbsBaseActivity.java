@@ -11,10 +11,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
-
 import com.moive.sus.library.R;
-import com.moive.sus.library.base.util.LogUtils;
 import com.moive.sus.library.base.widget.MultipleStatusView;
+
 
 /**
  * Created by 17604 on 2017/4/18.
@@ -119,8 +118,8 @@ public abstract class AbsBaseActivity extends AppCompatActivity implements BaseV
     }
 
     @Override
-    public void close() {
-
+    public void close() { // 退出程序
+        BaseAppManager.getInstance().AppExit(this);
     }
 
     public void startActivity(Class<? extends Activity> tarActivity, Bundle options) {

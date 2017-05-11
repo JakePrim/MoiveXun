@@ -1,6 +1,7 @@
 package com.moive.sus.welcomemodule;
 
 import android.content.Context;
+import android.os.Handler;
 import android.widget.Toast;
 
 import com.moive.sus.library.base.api.DApi;
@@ -21,7 +22,7 @@ import okhttp3.ResponseBody;
  * 处理欢迎页面逻辑类
  */
 
-public class WelcomePresenter implements WelcomeContract.Presenter  {
+public class WelcomePresenter implements WelcomeContract.Presenter {
 
     private Context mContext;
     private WelcomeContract.View mView;
@@ -32,39 +33,22 @@ public class WelcomePresenter implements WelcomeContract.Presenter  {
 
     @Override
     public void initData() {
-        RetrofitClient.getInstance(mContext, DApi.BASE_URL).createBaseApi().executePost(DApi.NOW_MOVIE_URL, new BaseObserver<ResponseBody>(mContext) {
-            Disposable mDis;
-
+        new Thread(new Runnable() {
             @Override
-            public void onSubscribe(@NonNull Disposable d) {
-                mView.showLoadingView("");
-                mDis = d;
-            }
-
-            @Override
-            public void onNext(@NonNull ResponseBody o) {
-                Toast.makeText(mContext, "onNext", Toast.LENGTH_LONG).show();
+            public void run() {
                 try {
-
-                    LogUtils.e(o.string());
-                } catch (IOException e) {
+                    Thread.sleep(2000);
+                    mView.startAdvter();
+                } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
             }
+        }).start();
+    }
 
-            @Override
-            public void onComplete() {
-                Toast.makeText(mContext, "onComplete", Toast.LENGTH_LONG).show();
-                mView.showContentView();
-                mDis.dispose();
-            }
-
-            @Override
-            public void onError(ExceptionHandle.ResponeThrowable e) {
-                mView.showErrorView("", "");
-            }
-        });
-
+    @Override
+    public void endAdvter() {//广告结束 准备跳转到MainActivity
+        mView.toMainActivity();
     }
 
     @Override

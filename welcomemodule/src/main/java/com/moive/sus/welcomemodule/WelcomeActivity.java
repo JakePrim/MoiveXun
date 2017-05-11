@@ -1,20 +1,25 @@
 package com.moive.sus.welcomemodule;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-
+import android.widget.TextView;
+import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.moive.sus.library.base.AbsBaseActivity;
 
 /**
  * Class Note:
  * this is welcome page
  */
+@Route(path = "/module/welcome")
 public class WelcomeActivity extends AbsBaseActivity implements WelcomeContract.View {
 
     private WelcomePresenter presenter;
 
+   TextView mWelcomeTv;
+
     @Override
     protected void initViewsAndEvents(Bundle savedInstanceState) {
+        mWelcomeTv = (TextView) findViewById(R.id.welcome_tv);
         presenter = new WelcomePresenter(this);
         presenter.attachView(this);
         presenter.initData();
@@ -22,7 +27,7 @@ public class WelcomeActivity extends AbsBaseActivity implements WelcomeContract.
 
     @Override
     protected int getContentViewID() {
-        return R.layout.activity_welcome;
+        return R.layout.welcome_activity;
     }
 
     @Override
@@ -32,7 +37,26 @@ public class WelcomeActivity extends AbsBaseActivity implements WelcomeContract.
 
     @Override
     public void toMainActivity() {
+        ARouter.getInstance()
+                .build("/app/home")
+                .withString("data", "app传过来的内容")
+                .navigation();
+    }
 
+    @Override
+    public void startAdvter() {
+        mWelcomeTv.setText("跳转到广告 - 准备跳转到MainActivity");
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(5000);
+                    presenter.endAdvter();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
     }
 
     @Override

@@ -368,7 +368,7 @@ public class LogUtils {
             Log.e(tag, "log to " + fullPath + " failed!");
             return;
         }
-        String time = new SimpleDateFormat("MM-dd HH:mm:ss.SSS ", Locale.getDefault()).format(now);
+        String time = new SimpleDateFormat("MM-dd HH:mm:Contanst.SSS ", Locale.getDefault()).format(now);
         StringBuilder sb = new StringBuilder();
         if (sLogBorderSwitch) {
             sb.append(TOP_BORDER).append(LINE_SEPARATOR);

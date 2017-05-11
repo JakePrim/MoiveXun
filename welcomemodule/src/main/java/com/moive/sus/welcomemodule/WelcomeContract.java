@@ -13,9 +13,11 @@ import com.moive.sus.library.base.BaseView;
 public class WelcomeContract {
     interface Presenter extends BasePresenter<View> {
         void initData();
+        void endAdvter();
     }
 
     interface View extends BaseView {
         void toMainActivity();
+        void startAdvter();
     }
 }

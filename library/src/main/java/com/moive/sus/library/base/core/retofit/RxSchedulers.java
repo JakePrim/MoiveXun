@@ -15,7 +15,7 @@ import io.reactivex.schedulers.Schedulers;
 
 /**
  * Created by linksus on 5/2 0002.
- * Rx 线程管理类
+ * Rx 线程管理类 网络请求在子线程中 请求成功在主线程中
  */
 
 public class RxSchedulers {

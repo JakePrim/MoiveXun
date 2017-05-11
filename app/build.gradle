@@ -17,12 +17,6 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
-
-        debug {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-
     }
 
     lintOptions {
@@ -35,4 +29,8 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     //library
     compile project(":library")
+    compile project(":welcomemodule")
+
+    compile rootProject.ext.dependencies["butterknife"]
+    annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]
 }

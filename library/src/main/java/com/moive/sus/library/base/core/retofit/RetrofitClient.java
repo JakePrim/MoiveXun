@@ -36,7 +36,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * Created by linksus on 5/2 0002.
- * 网络请求看客户端
+ * 网络请求客户端
  */
 
 public class RetrofitClient {
@@ -123,7 +123,7 @@ public class RetrofitClient {
         }
         okHttpClient = new OkHttpClient.Builder()
                 .addNetworkInterceptor(new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
-//                .cookieJar(new CookieManger(context))
+//                .cookieJar(new CookieManger(context)) //
                 .cache(cache)
                 .addInterceptor(new BaseInterceptor(headers))
                 .addInterceptor(new CaheInterceptor(context))
@@ -200,7 +200,7 @@ public class RetrofitClient {
     }
 
     public void executePost(String url, Map<String, String> map, BaseObserver<ResponseBody> observer) {
-        apiService.executePost(url, map)
+        apiService.executePost(url,map)
                 .compose(RxSchedulers.<ResponseBody>compose())
                 .subscribe(observer);
     }
