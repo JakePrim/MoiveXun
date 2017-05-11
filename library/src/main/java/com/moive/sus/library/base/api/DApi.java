@@ -1,6 +1,7 @@
-package moive.sus.com.moivexun.api;
+package com.moive.sus.library.base.api;
 
-import moive.sus.com.moivexun.BuildConfig;
+
+import com.moive.sus.library.BuildConfig;
 
 /**
  * Created by linksus on 4/17 0017.

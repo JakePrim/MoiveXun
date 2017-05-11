@@ -9,6 +9,8 @@ import io.reactivex.disposables.Disposable;
 
 /**
  * Created by linksus on 5/10 0010.
+ *  Class Note:
+ *  this is all Observer base class
  */
 
 public abstract class BaseObserver<T> implements Observer<T> {

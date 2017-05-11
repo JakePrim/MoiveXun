@@ -1,19 +1,15 @@
-package moive.sus.com.moivexun.module.welcome;
+package com.moive.sus.welcomemodule;
 
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.moive.sus.library.base.AbsBaseActivity;
 
-import moive.sus.com.moivexun.MainActivity;
-import moive.sus.com.moivexun.R;
-
 /**
- * Created by 17604 on 2017/4/18.
  * Class Note:
  * this is welcome page
  */
 public class WelcomeActivity extends AbsBaseActivity implements WelcomeContract.View {
-
 
     private WelcomePresenter presenter;
 
@@ -36,7 +32,7 @@ public class WelcomeActivity extends AbsBaseActivity implements WelcomeContract.
 
     @Override
     public void toMainActivity() {
-        startActivity(MainActivity.class);
+
     }
 
     @Override

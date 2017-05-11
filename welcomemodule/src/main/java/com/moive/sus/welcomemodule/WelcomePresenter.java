@@ -1,8 +1,9 @@
-package moive.sus.com.moivexun.module.welcome;
+package com.moive.sus.welcomemodule;
 
 import android.content.Context;
 import android.widget.Toast;
 
+import com.moive.sus.library.base.api.DApi;
 import com.moive.sus.library.base.core.retofit.BaseObserver;
 import com.moive.sus.library.base.core.retofit.ExceptionHandle;
 import com.moive.sus.library.base.core.retofit.RetrofitClient;
@@ -12,7 +13,6 @@ import java.io.IOException;
 
 import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
-import moive.sus.com.moivexun.api.DApi;
 import okhttp3.ResponseBody;
 
 /**
@@ -21,7 +21,7 @@ import okhttp3.ResponseBody;
  * 处理欢迎页面逻辑类
  */
 
-public class WelcomePresenter implements WelcomeContract.Presenter {
+public class WelcomePresenter implements WelcomeContract.Presenter  {
 
     private Context mContext;
     private WelcomeContract.View mView;

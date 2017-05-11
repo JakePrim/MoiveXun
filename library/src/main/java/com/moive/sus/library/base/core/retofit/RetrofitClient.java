@@ -40,7 +40,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 
 public class RetrofitClient {
-    private static final int DEFAULT_TIMEOUT = 20;
+    private static final int DEFAULT_TIMEOUT = 10;
     private ApiService apiService;
     private static OkHttpClient okHttpClient;
     public static String baseUrl = "https://api.douban.com";
@@ -200,7 +200,9 @@ public class RetrofitClient {
     }
 
     public void executePost(String url, Map<String, String> map, BaseObserver<ResponseBody> observer) {
-
+        apiService.executePost(url, map)
+                .compose(RxSchedulers.<ResponseBody>compose())
+                .subscribe(observer);
     }
 
     /**

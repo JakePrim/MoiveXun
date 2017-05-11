@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import android.os.Handler;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.moive.sus.library.BuildConfig;
 import com.moive.sus.library.base.util.LogUtils;
 import com.moive.sus.library.base.util.Utils;
@@ -26,7 +27,9 @@ public class BaseApplication extends Application {
         super.onCreate();
         mHandler = new Handler();
         mContext = getApplicationContext();
+        ARouter.init(this); // 尽可能早，推荐在Application中初始化
     }
+
 
     public static Context getContext() {
         return mContext;
