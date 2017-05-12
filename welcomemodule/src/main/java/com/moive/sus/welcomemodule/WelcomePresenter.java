@@ -33,17 +33,8 @@ public class WelcomePresenter implements WelcomeContract.Presenter {
 
     @Override
     public void initData() {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    Thread.sleep(2000);
-                    mView.startAdvter();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        }).start();
+        mView.startAdvter();
+
     }
 
     @Override

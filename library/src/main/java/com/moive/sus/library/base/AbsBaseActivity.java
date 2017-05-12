@@ -45,10 +45,9 @@ public abstract class AbsBaseActivity extends AppCompatActivity implements BaseV
         initViewsAndEvents(savedInstanceState);
     }
 
-    //https://github.com/qyxxjd/MultipleStatusView
-
     /**
      * setContentView
+     * https://github.com/qyxxjd/MultipleStatusView
      * @return
      */
     protected View getStatusLayoutView() {

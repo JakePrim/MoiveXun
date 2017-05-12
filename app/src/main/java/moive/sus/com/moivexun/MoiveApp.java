@@ -13,9 +13,9 @@ import com.moive.sus.library.base.util.Utils;
  */
 
 public class MoiveApp extends BaseApplication {
-    public static LogUtils.Builder lBuilder;
-    private static BaseApplication appContext;
 
+    private static BaseApplication appContext;
+    public static LogUtils.Builder lBuilder;
     public static BaseApplication getInstance() {
         return appContext;
     }
@@ -24,10 +24,10 @@ public class MoiveApp extends BaseApplication {
     public void onCreate() {
         super.onCreate();
         appContext = this;
+        ARouter.init(this); // 尽可能早，推荐在Application中初始化
         Utils.init(this);
-        logBuilder();
         isDebug();
-
+        logBuilder();
     }
 
     private void logBuilder() {
@@ -40,7 +40,6 @@ public class MoiveApp extends BaseApplication {
                 .setBorderSwitch(true)// 输出日志是否带边框开关，默认开
                 .setLogFilter(LogUtils.V);// log过滤器，和logcat过滤器同理，默认Verbose
     }
-
     public void isDebug() {
         if (BuildConfig.TAG_DEBUG) {
             ARouter.openLog();     // 打印日志

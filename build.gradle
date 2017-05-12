@@ -31,22 +31,13 @@ def butterKnifeVersion = '8.5.1'
 def retrofitVersion = '2.2.0'
 def routerapiVersion = '1.2.1.1'
 def routercompilerVersion = '1.1.2.1'
+def arouterannotationVersion = '1.0.3'
 //https://github.com/sharish/ShimmerRecyclerView
 //https://github.com/Ramotion/expanding-collection-android?utm_medium=email&utm_source=gank.io
 //compile 'com.airbnb.android:lottie:1.0.1'
 //    compile 'com.trello:rxlifecycle:1.0'
 //    compile 'com.trello:rxlifecycle-components:1.0'
 project.ext {
-    android = [
-            compileSdkVersion: 25,
-            buildToolsVersion: "25.0.2",
-            applicationId    : "moive.sus.com.moivexun",
-            minSdkVersion    : 15,
-            targetSdkVersion : 25,
-            versionCode      : 1,
-            versionName      : "1.0"
-    ]
-
     dependencies = [
             //android-support
             "support-v4"                 : "com.android.support:support-v4:${supportLibVersion}",
@@ -75,6 +66,7 @@ project.ext {
             //router
             "arouter-api"                : "com.alibaba:arouter-api:${routerapiVersion}",
             "arouter-compiler"           : "com.alibaba:arouter-compiler:${routercompilerVersion}",
+            "arouter-annotation"         : "com.alibaba:arouter-annotation:${arouterannotationVersion}",
 
             //butterKnife
             "butterknife"                : "com.jakewharton:butterknife:${butterKnifeVersion}",

@@ -37,26 +37,13 @@ public class WelcomeActivity extends AbsBaseActivity implements WelcomeContract.
 
     @Override
     public void toMainActivity() {
-        ARouter.getInstance()
-                .build("/app/home")
-                .withString("data", "app传过来的内容")
-                .navigation();
+//        ARouter.getInstance().build("/app/home").navigation();
     }
 
     @Override
     public void startAdvter() {
         mWelcomeTv.setText("跳转到广告 - 准备跳转到MainActivity");
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    Thread.sleep(5000);
-                    presenter.endAdvter();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        }).start();
+        presenter.endAdvter();
     }
 
     @Override
