@@ -27,7 +27,6 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-
     testCompile rootProject.ext.dependencies["junit"]
 
     compile rootProject.ext.dependencies["rxandroid"]
@@ -41,10 +40,5 @@ dependencies {
     compile rootProject.ext.dependencies["glide"]
     compile rootProject.ext.dependencies["dagger"]
     annotationProcessor rootProject.ext.dependencies["dagger-compiler"]
-    compile rootProject.ext.dependencies["support-v4"]
-    compile rootProject.ext.dependencies["appcompat-v7"]
-    compile rootProject.ext.dependencies["design"]
-    compile rootProject.ext.dependencies["recyclerview-v7"]
-    compile rootProject.ext.dependencies["cardview-v7"]
-    compile rootProject.ext.dependencies["constraint-layout"]
+    compile project(":opensourcelibrary")
 }

@@ -15,19 +15,34 @@ android {
         resourcePrefix "welcome_"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
+//        compileOptions {
+//            sourceCompatibility JavaVersion.VERSION_1_8
+//            targetCompatibility JavaVersion.VERSION_1_8
+//        }
+
         javaCompileOptions {
             annotationProcessorOptions {
-                arguments = [ moduleName : project.getName() ]
+                arguments = [moduleName: project.getName()]
             }
         }
 
+        // 指定支持的so架构
+        ndk {
+            abiFilters 'armeabi', 'armeabi-v7a'//, 'arm64-v8a', 'x86', 'x86_64', 'mips', 'mips64'
+        }
+
+//        jackOptions {
+//            enabled true
+//        }
     }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
 
     sourceSets {
         main {
@@ -36,7 +51,16 @@ android {
             } else {
                 manifest.srcFile 'src/main/release/AndroidManifest.xml'
             }
+            jniLibs.srcDirs = ['libs']
+            assets.srcDirs = ['src/main/assets', 'src/main/assets/']
         }
+
+    }
+}
+
+repositories {
+    flatDir {
+        dirs 'libs'
     }
 }
 
@@ -45,4 +69,11 @@ dependencies {
     compile project(":library")
     compile rootProject.ext.dependencies["arouter-api"]
     annotationProcessor rootProject.ext.dependencies["arouter-compiler"]
+
+    // name 为上一步导入SDK中导入到工程的aar文件名去除文件后缀的字符串
+    // 比如上一步导入SDK中导入到工程的aar文件名为 YoumiSdk_v7.2.1_2017-05-04.aar，
+    // 那么这里应该这样配置 compile name: 'YoumiSdk_v7.2.1_2017-05-04', ext: 'aar'
+    //    compile name: 'YoumiSdk_v7.2.0_2017-05-08', ext: 'aar'
+
+    compile files('libs/YoumiSdk_v7.2.1_2017-04-11.jar')
 }

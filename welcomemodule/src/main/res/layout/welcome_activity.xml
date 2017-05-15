@@ -1,22 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Theme.AppCompat.Light.NoActionBar"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:background="@color/movie_skin_white">
 
     <RelativeLayout
+        android:id="@+id/rl_splash"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/rl_bottom">
+
+        <View
+            android:id="@+id/view_divider"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:layout_alignParentBottom="true"
+            android:background="@mipmap/bg_divider" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_bottom"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_alignParentBottom="true"
         android:background="@color/movie_skin_white">
 
+        <ImageView
+            android:id="@+id/iv_logo"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="30dp"
+            android:src="@mipmap/logo" />
+
         <TextView
             android:id="@+id/welcome_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
+            android:layout_alignTop="@+id/iv_logo"
             android:layout_marginLeft="@dimen/dp_10"
-            android:text="极点影讯 - 从X到Y"
+            android:layout_toRightOf="@+id/iv_logo"
+            android:text="极点影讯"
+            android:textColor="@color/movie_skin_brack"
+            android:textSize="@dimen/textSize_20" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/iv_logo"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_toRightOf="@+id/iv_logo"
+            android:text="Copyright @ 2017"
+            android:textColor="@color/movie_skin_context"
+            android:textSize="@dimen/textSize_12" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dp_40"
+            android:layout_toRightOf="@+id/welcome_tv"
+            android:text="影视的聚集地"
+            android:textColor="@color/movie_skin_text"
             android:textSize="@dimen/textSize_16" />
+
     </RelativeLayout>
 </RelativeLayout>

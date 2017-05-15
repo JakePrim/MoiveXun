@@ -45,12 +45,6 @@ public class MainActivity extends AbsBaseActivity {
     }
 
     @Override
-    public void finish() {
-        super.finish();
-        close();
-    }
-
-    @Override
     protected void onDestroy() {
         super.onDestroy();
         ARouter.getInstance().destroy();

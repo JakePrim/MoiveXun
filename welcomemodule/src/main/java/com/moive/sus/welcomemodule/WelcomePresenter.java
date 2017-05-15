@@ -34,7 +34,6 @@ public class WelcomePresenter implements WelcomeContract.Presenter {
     @Override
     public void initData() {
         mView.startAdvter();
-
     }
 
     @Override

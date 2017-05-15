@@ -37,9 +37,8 @@ android {
 
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+//    compile fileTree(dir: 'libs', include: ['*.jar'])
     //library
-    compile project(":library")
     compile project(":welcomemodule")
 
     compile rootProject.ext.dependencies["butterknife"]

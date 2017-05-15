@@ -6,7 +6,8 @@
         android:allowBackup="true"
         android:supportsRtl="true">
 
-        <activity android:name=".WelcomeActivity">
+        <activity
+            android:name=".WelcomeActivity">
             <intent-filter>
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />

@@ -25,4 +25,10 @@ public class HomeActivity extends AbsBaseActivity {
     protected void onRetryClick() {
 
     }
+
+    @Override
+    public void finish() {
+        super.finish();
+        close();
+    }
 }

@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="movie_skin_white">#ffffff</color>
+    <color name="movie_skin_brack">#000000</color>
+    <color name="movie_skin_text">#2f2f2f</color>
+    <color name="movie_skin_context">#b7b7b7</color>
+
 </resources>
