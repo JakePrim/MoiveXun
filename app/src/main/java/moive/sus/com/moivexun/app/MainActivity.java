@@ -26,7 +26,8 @@ public class MainActivity extends AbsBaseActivity {
     protected void initViewsAndEvents(Bundle savedInstanceState) {
         ButterKnife.bind(this);
         ARouter.init(getApplication());
-        ARouter.getInstance().build("/module/welcome").navigation();
+        //   /app/home   /module/welcome
+        ARouter.getInstance().build("/app/home").navigation();
     }
 
     @Override

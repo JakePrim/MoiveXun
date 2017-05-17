@@ -1,11 +1,8 @@
 package com.moive.sus.welcomemodule;
 
-import android.app.ActionBar;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.view.WindowManager;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -13,7 +10,6 @@ import android.widget.TextView;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.moive.sus.library.base.AbsBaseActivity;
-import com.moive.sus.library.base.util.DeviceUtils;
 import com.moive.sus.library.base.util.LogUtils;
 
 import net.youmi.android.AdManager;

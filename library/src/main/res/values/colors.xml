@@ -5,4 +5,26 @@
     <color name="movie_skin_text">#2f2f2f</color>
     <color name="movie_skin_context">#b7b7b7</color>
 
+    <!-- 亮色主题 00BF9A-->
+    <color name="movie_skin_light_bar">#00AA8D</color>
+    <color name="movie_skin_light_tool">#F5F5F5</color>
+    <color name="movie_skin_light_bg">#FAFAFA</color>
+    <color name="movie_skin_light_dialog">#ffffff</color>
+    <!-- 浅色背景中的文本颜色 -->
+    <color name="movie_skin_light_primary">#D8000000</color>
+    <color name="movie_skin_light_secondary">#8c000000</color>
+    <color name="movie_skin_light_hint">#66000000</color>
+    <color name="movie_skin_light_line">#21000000</color>
+    <!-- 暗色主题 -->
+    <color name="movie_skin_night_bar">#008975</color>
+    <color name="movie_skin_night_tool">#212121</color>
+    <color name="movie_skin_night_bg">#303030</color>
+    <color name="movie_skin_night_dialog">#424242</color>
+    <!-- 深色色背景中的文本颜色 -->
+    <color name="movie_skin_night_primary">#FFFFFF</color>
+    <color name="movie_skin_night_secondary">#B2FFFFFF</color>
+    <color name="movie_skin_night_hint">#7FFFFFFF</color>
+    <color name="movie_skin_night_line">#21FFFFFF</color>
+
+
 </resources>

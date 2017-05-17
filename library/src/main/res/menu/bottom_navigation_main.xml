@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/home"
+        android:enabled="true"
+        android:icon="@mipmap/home"
+        android:title="@string/str_movie_home"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/broadcast"
+        android:enabled="true"
+        android:icon="@mipmap/broadcast"
+        android:title="@string/str_movie_broadcast"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/activity"
+        android:enabled="true"
+        android:icon="@mipmap/activity"
+        android:title="@string/str_movie_activity"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/mine"
+        android:enabled="true"
+        android:icon="@mipmap/my"
+        android:title="@string/str_movie_mine"
+        app:showAsAction="ifRoom" />
+</menu>
