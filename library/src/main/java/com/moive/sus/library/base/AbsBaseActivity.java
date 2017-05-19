@@ -5,19 +5,15 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
+import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
-import android.support.annotation.StringRes;
-import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
 import com.moive.sus.library.R;
-import com.moive.sus.library.base.interfaze.OnSwitchFragmentListener;
 import com.moive.sus.library.base.widget.MultipleStatusView;
 
 
@@ -27,15 +23,13 @@ import com.moive.sus.library.base.widget.MultipleStatusView;
  * all activities implement from this class
  */
 
-public abstract class AbsBaseActivity extends AppCompatActivity implements BaseView, BottomNavigationView.OnNavigationItemSelectedListener {
+public abstract class AbsBaseActivity extends AppCompatActivity implements BaseView {
     protected static String TAG_LOG = "";// Log tag
 
     protected Context mContext = null;//context
     public RelativeLayout content_view;
     public View activity_status_view;
     public MultipleStatusView statusView;
-    private BottomNavigationView mNavigation;
-    private OnSwitchFragmentListener onSwitchFragmentListener;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -63,7 +57,6 @@ public abstract class AbsBaseActivity extends AppCompatActivity implements BaseV
         activity_status_view = LayoutInflater.from(this).inflate(R.layout.lib_activity_show_status, null);
         statusView = (MultipleStatusView) activity_status_view.findViewById(R.id.main_multiplestatusview);
         content_view = (RelativeLayout) activity_status_view.findViewById(R.id.content_view);
-        mNavigation = (BottomNavigationView) activity_status_view.findViewById(R.id.bottom_navigation);
         initListener();
         if (getContentViewID() != 0) {
             View contentView = LayoutInflater.from(this).inflate(getContentViewID(), null);
@@ -74,20 +67,6 @@ public abstract class AbsBaseActivity extends AppCompatActivity implements BaseV
     }
 
     /**
-     * 隐藏底部导航栏
-     */
-    public void goneNavigation() {
-        mNavigation.setVisibility(View.GONE);
-    }
-
-    /**
-     * 显示底部导航栏
-     */
-    public void visableNavigation() {
-        mNavigation.setVisibility(View.VISIBLE);
-    }
-
-    /**
      * init views and events here
      */
     protected abstract void initViewsAndEvents(Bundle savedInstanceState);
@@ -95,6 +74,7 @@ public abstract class AbsBaseActivity extends AppCompatActivity implements BaseV
     /**
      * bind layout resource file
      */
+    @LayoutRes
     protected abstract int getContentViewID();
 
     /**
@@ -106,7 +86,6 @@ public abstract class AbsBaseActivity extends AppCompatActivity implements BaseV
      * 初始化监听
      */
     protected void initListener() {
-        mNavigation.setOnNavigationItemSelectedListener(this);
         statusView.setOnRetryClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -144,32 +123,6 @@ public abstract class AbsBaseActivity extends AppCompatActivity implements BaseV
     @Override
     public void close() { // 退出程序
         BaseAppManager.getInstance().AppExit(this);
-    }
-
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        int i = item.getItemId();
-        int text = 0;
-        if (i == R.id.home) {
-            text = 1;
-        } else if (i == R.id.broadcast) {
-            text = 2;
-        } else if (i == R.id.activity) {
-            text = 3;
-        } else {
-            text = 4;
-        }
-        onSwitchFragmentListener.switchFragmentText(text);
-        return true;
-    }
-
-    /**
-     * 首页 fragment跳转
-     *
-     * @param onSwitchFragmentListener
-     */
-    public void setOnSwitchFragmentListener(OnSwitchFragmentListener onSwitchFragmentListener) {
-        this.onSwitchFragmentListener = onSwitchFragmentListener;
     }
 
     public void startActivity(Class<? extends Activity> tarActivity, Bundle options) {

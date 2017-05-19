@@ -2,11 +2,21 @@
 <resources>
 
     <declare-styleable name="MultipleStatusView">
-        <attr name="loadingView" format="reference"/>
-        <attr name="errorView" format="reference"/>
-        <attr name="emptyView" format="reference"/>
-        <attr name="noNetworkView" format="reference"/>
-        <attr name="contentView" format="reference"/>
+        <attr name="loadingView" format="reference" />
+        <attr name="errorView" format="reference" />
+        <attr name="emptyView" format="reference" />
+        <attr name="noNetworkView" format="reference" />
+        <attr name="contentView" format="reference" />
     </declare-styleable>
-
+    <declare-styleable name="MaterialSearchBar">
+        <attr name="mt_searchIconDrawable" format="reference" />
+        <attr name="mt_navIconDrawable" format="reference" />
+        <attr name="mt_hint" format="string" />
+        <attr name="mt_placeholder" format="string" />
+        <attr name="mt_maxSuggestionsCount" format="string" />
+        <attr name="mt_speechMode" format="boolean" />
+        <attr name="mt_hintColor" format="color" />
+        <attr name="mt_textColor" format="color" />
+        <attr name="mt_navIconEnabled" format="boolean" />
+    </declare-styleable>
 </resources>

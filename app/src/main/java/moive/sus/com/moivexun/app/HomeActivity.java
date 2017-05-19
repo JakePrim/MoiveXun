@@ -1,11 +1,17 @@
 package moive.sus.com.moivexun.app;
 
 import android.os.Bundle;
-import android.widget.TextView;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.view.MenuItem;
+import android.widget.FrameLayout;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.moive.sus.library.base.AbsBaseActivity;
-import com.moive.sus.library.base.interfaze.OnSwitchFragmentListener;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -14,10 +20,18 @@ import moive.sus.com.moivexun.module.home.HomeContract;
 import moive.sus.com.moivexun.module.home.HomePresenter;
 
 @Route(path = "/app/home")
-public class HomeActivity extends AbsBaseActivity implements HomeContract.HomeView, OnSwitchFragmentListener {
+public class HomeActivity extends AbsBaseActivity implements HomeContract.HomeView, BottomNavigationView.OnNavigationItemSelectedListener {
 
 
     private HomePresenter presenter;
+
+    @BindView(R.id.bottom_navigation)
+    BottomNavigationView mNavigation;
+
+    @BindView(R.id.frame_content)
+    FrameLayout frame_content;
+
+    private Fragment moiveFragment;
 
     @Override
     protected void initViewsAndEvents(Bundle savedInstanceState) {
@@ -45,10 +59,23 @@ public class HomeActivity extends AbsBaseActivity implements HomeContract.HomeVi
 
     @Override
     public void initView() {
-        setOnSwitchFragmentListener(this);
+        mNavigation.setOnNavigationItemSelectedListener(this);
+        // 获取Fragment
+        moiveFragment = (Fragment) ARouter.getInstance().build("/fragment/movie").navigation();
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.replace(R.id.frame_content, moiveFragment);
+        transaction.commit();
     }
 
     @Override
-    public void switchFragmentText(int switchs) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        return true;
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        ARouter.getInstance().destroy();
     }
 }

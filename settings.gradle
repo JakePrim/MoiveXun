@@ -1,1 +1,1 @@
-include ':app', ':library', ':example', ':welcomemodule', ':opensourcelibrary'
+include ':app', ':library', ':example', ':welcomemodule', ':opensourcelibrary', ':loginmodule', ':moviemodule'

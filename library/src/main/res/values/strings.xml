@@ -7,4 +7,5 @@
     <string name="str_movie_broadcast">广播</string>
     <string name="str_movie_activity">活动</string>
     <string name="str_movie_mine">我的</string>
+    <string name="action_search">Search</string>
 </resources>

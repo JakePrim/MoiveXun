@@ -16,16 +16,4 @@
             android:layout_height="match_parent" />
     </com.moive.sus.library.base.widget.MultipleStatusView>
 
-    <android.support.design.widget.BottomNavigationView
-        android:id="@+id/bottom_navigation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        app:itemBackground="@color/movie_skin_light_bar"
-        app:itemIconTint="@color/movie_skin_night_primary"
-        app:itemTextColor="@color/movie_skin_night_primary"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:menu="@menu/bottom_navigation_main" />
 </RelativeLayout>

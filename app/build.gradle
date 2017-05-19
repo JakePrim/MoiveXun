@@ -40,6 +40,7 @@ dependencies {
 //    compile fileTree(dir: 'libs', include: ['*.jar'])
     //library
     compile project(":welcomemodule")
+    compile project(":moviemodule")
 
     compile rootProject.ext.dependencies["butterknife"]
     annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]

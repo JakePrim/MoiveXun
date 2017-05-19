@@ -37,7 +37,7 @@ public class WelcomePresenter implements WelcomeContract.Presenter {
     }
 
     @Override
-    public void endAdvter() {//广告结束 准备跳转到MainActivity
+    public void endAdvter() {//广告结束 准备跳转到HomeActivity
         mView.toMainActivity();
     }
 
