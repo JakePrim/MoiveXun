@@ -27,8 +27,7 @@ public class WelcomeActivity extends AbsBaseActivity implements WelcomeContract.
 
     private static final String TAG = "welcome";
     private WelcomePresenter presenter;
-
-    TextView mWelcomeTv;
+    private TextView mWelcomeTv;
 
     @Override
     protected void initViewsAndEvents(Bundle savedInstanceState) {
@@ -89,6 +88,7 @@ public class WelcomeActivity extends AbsBaseActivity implements WelcomeContract.
                         break;
                     case ErrorCode.NON_AD:
                         Log.v(TAG, "暂无开屏广告");
+                        toMainActivity();
                         break;
                     case ErrorCode.RESOURCE_NOT_READY:
                         Log.v(TAG, "开屏资源还没准备好");

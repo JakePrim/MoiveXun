@@ -1,4 +1,4 @@
-package moive.sus.com.moivexun.app;
+package moive.sus.com.moivexun.activity;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -6,6 +6,7 @@ import android.widget.TextView;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.moive.sus.library.base.AbsBaseActivity;
+import com.moive.sus.library.base.util.LogUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -25,9 +26,9 @@ public class MainActivity extends AbsBaseActivity {
     @Override
     protected void initViewsAndEvents(Bundle savedInstanceState) {
         ButterKnife.bind(this);
-        ARouter.init(getApplication());
+        LogUtils.e("跳转到欢迎页面moudle");
         //   /app/home   /module/welcome
-        ARouter.getInstance().build("/app/home").navigation();
+        ARouter.getInstance().build("/module/welcome").navigation();
     }
 
     @Override
@@ -48,6 +49,5 @@ public class MainActivity extends AbsBaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        ARouter.getInstance().destroy();
     }
 }

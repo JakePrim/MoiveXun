@@ -1,5 +1,7 @@
 package moive.sus.com.moivexun;
 
+import android.app.Application;
+
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.moive.sus.library.base.BaseApplication;
 import com.moive.sus.library.base.util.LogUtils;
@@ -12,11 +14,11 @@ import com.moive.sus.library.base.util.Utils;
  * use in AndroidManifest.xml
  */
 
-public class MoiveApp extends BaseApplication {
+public class MoiveApp extends Application {
 
-    private static BaseApplication appContext;
+    private static Application appContext;
 
-    public static BaseApplication getInstance() {
+    public static Application getInstance() {
         return appContext;
     }
 

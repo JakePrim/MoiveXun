@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/movie_skin_light_bg"
     android:fitsSystemWindows="true"
-    tools:context="moive.sus.com.moivexun.app.HomeActivity">
+    tools:context="moive.sus.com.moivexun.activity.HomeActivity">
 
     <LinearLayout
         android:layout_width="match_parent"

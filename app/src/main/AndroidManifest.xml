@@ -10,7 +10,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".app.MainActivity">
+        <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -18,7 +18,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".app.HomeActivity"
+            android:name=".activity.HomeActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
     </application>

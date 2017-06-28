@@ -3,12 +3,20 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/MoiveXun.iml" filepath="$PROJECT_DIR$/MoiveXun.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MoiveXunComment.iml" filepath="$PROJECT_DIR$/MoiveXunComment.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/example/example.iml" filepath="$PROJECT_DIR$/example/example.iml" />
+      <module fileurl="file://$PROJECT_DIR$/example/example.iml" filepath="$PROJECT_DIR$/example/example.iml" />
+      <module fileurl="file://$PROJECT_DIR$/library/library.iml" filepath="$PROJECT_DIR$/library/library.iml" />
       <module fileurl="file://$PROJECT_DIR$/library/library.iml" filepath="$PROJECT_DIR$/library/library.iml" />
       <module fileurl="file://$PROJECT_DIR$/loginmodule/loginmodule.iml" filepath="$PROJECT_DIR$/loginmodule/loginmodule.iml" />
+      <module fileurl="file://$PROJECT_DIR$/loginmodule/loginmodule.iml" filepath="$PROJECT_DIR$/loginmodule/loginmodule.iml" />
+      <module fileurl="file://$PROJECT_DIR$/moviemodule/moviemodule.iml" filepath="$PROJECT_DIR$/moviemodule/moviemodule.iml" />
       <module fileurl="file://$PROJECT_DIR$/moviemodule/moviemodule.iml" filepath="$PROJECT_DIR$/moviemodule/moviemodule.iml" />
       <module fileurl="file://$PROJECT_DIR$/opensourcelibrary/opensourcelibrary.iml" filepath="$PROJECT_DIR$/opensourcelibrary/opensourcelibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/opensourcelibrary/opensourcelibrary.iml" filepath="$PROJECT_DIR$/opensourcelibrary/opensourcelibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/welcomemodule/welcomemodule.iml" filepath="$PROJECT_DIR$/welcomemodule/welcomemodule.iml" />
       <module fileurl="file://$PROJECT_DIR$/welcomemodule/welcomemodule.iml" filepath="$PROJECT_DIR$/welcomemodule/welcomemodule.iml" />
     </modules>
   </component>

@@ -1,4 +1,4 @@
-package moive.sus.com.moivexun.app;
+package moive.sus.com.moivexun.activity;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -76,6 +76,5 @@ public class HomeActivity extends AbsBaseActivity implements HomeContract.HomeVi
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        ARouter.getInstance().destroy();
     }
 }
