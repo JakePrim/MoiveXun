@@ -28,7 +28,7 @@ public class MainActivity extends AbsBaseActivity {
         ButterKnife.bind(this);
         LogUtils.e("跳转到欢迎页面moudle");
         //   /app/home   /module/welcome
-        ARouter.getInstance().build("/module/welcome").navigation();
+        ARouter.getInstance().build("/app/home").navigation();
     }
 
     @Override

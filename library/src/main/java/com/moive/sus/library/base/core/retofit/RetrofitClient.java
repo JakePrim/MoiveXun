@@ -138,7 +138,7 @@ public class RetrofitClient {
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .baseUrl(url)
                 .build();
-
+        createBaseApi();
     }
 
     /**
@@ -200,7 +200,7 @@ public class RetrofitClient {
     }
 
     public void executePost(String url, Map<String, String> map, BaseObserver<ResponseBody> observer) {
-        apiService.executePost(url,map)
+        apiService.executePost(url, map)
                 .compose(RxSchedulers.<ResponseBody>compose())
                 .subscribe(observer);
     }

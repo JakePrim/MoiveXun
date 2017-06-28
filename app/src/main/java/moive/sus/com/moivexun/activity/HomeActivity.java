@@ -20,18 +20,13 @@ import moive.sus.com.moivexun.module.home.HomeContract;
 import moive.sus.com.moivexun.module.home.HomePresenter;
 
 @Route(path = "/app/home")
-public class HomeActivity extends AbsBaseActivity implements HomeContract.HomeView, BottomNavigationView.OnNavigationItemSelectedListener {
+public class HomeActivity extends AbsBaseActivity implements HomeContract.HomeView{
 
 
     private HomePresenter presenter;
 
-    @BindView(R.id.bottom_navigation)
-    BottomNavigationView mNavigation;
-
     @BindView(R.id.frame_content)
     FrameLayout frame_content;
-
-    private Fragment moiveFragment;
 
     @Override
     protected void initViewsAndEvents(Bundle savedInstanceState) {
@@ -59,19 +54,9 @@ public class HomeActivity extends AbsBaseActivity implements HomeContract.HomeVi
 
     @Override
     public void initView() {
-        mNavigation.setOnNavigationItemSelectedListener(this);
-        // 获取Fragment
-        moiveFragment = (Fragment) ARouter.getInstance().build("/fragment/movie").navigation();
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction transaction = fragmentManager.beginTransaction();
-        transaction.replace(R.id.frame_content, moiveFragment);
-        transaction.commit();
+
     }
 
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        return true;
-    }
 
     @Override
     protected void onDestroy() {
